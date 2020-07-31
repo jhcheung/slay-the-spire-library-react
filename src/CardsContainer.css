@@ -1,0 +1,20 @@
+
+.Card {
+  display: flex;
+  flex-direction: column;
+  font-size: 16px;
+}
+
+/* .Card img {
+  width: 50%
+} */
+
+.Card table, td {
+  text-align: left;
+  border-collapse: collapse;
+  border: 1px solid white;
+}
+
+.Card td {
+  border: 1px solid white;
+}

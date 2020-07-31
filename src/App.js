@@ -1,16 +1,22 @@
 import React from 'react';
 import './App.css';
-import MainContainer from './MainContainer.js'
-
+import MainContainer from './MainContainer.js';
+import CardsContainer from './CardsContainer.js';
+import { BrowserRouter, Route } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1 id="title">Slay The Spire Card Library</h1>
-        <MainContainer />
-      </header>
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <header className="App-header">
+          <h3 id="title">Slay The Spire Card Library</h3>
+          <MainContainer />
+          <div>
+            <Route path="/cards/:id" component={CardsContainer} />
+          </div>
+        </header>
+      </div>
+    </BrowserRouter>
   );
 }
 
