@@ -7,6 +7,10 @@ export const fetchCards = () => fetch(cardsURL)
   .then(parseData)
   .catch(catchError);
 
+export const fetchCard = (id) => fetch(cardsURL + id)
+  .then(parseData)
+  .catch(catchError);
+
 export const fetchRelics = () => fetch(relicsURL)
   .then(parseData)
   .catch(catchError);
