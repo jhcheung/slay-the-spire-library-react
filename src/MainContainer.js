@@ -8,7 +8,7 @@ function randomItem(items){
 }
 
 class MainContainer extends React.Component {
-  state = { cards: [] }
+  state = { cards: [] };
 
   async componentDidMount() {
     const json = await requests.fetchCards();

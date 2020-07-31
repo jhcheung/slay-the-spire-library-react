@@ -18,3 +18,11 @@
 .Card td {
   border: 1px solid white;
 }
+
+.Card td:first {
+  width: 25%;
+}
+
+.Card td:last {
+  width: 75%;
+}
