@@ -19,10 +19,10 @@
   border: 1px solid white;
 }
 
-.Card td:first {
-  width: 25%;
+.Card td:first-child {
+  width: 20%;
 }
 
-.Card td:last {
-  width: 75%;
+.Card td:last-child {
+  width: 80%;
 }

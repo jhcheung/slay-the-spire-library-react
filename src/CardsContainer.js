@@ -1,12 +1,16 @@
 import React from 'react';
+import Image from 'react-graceful-image';
 import './CardsContainer.css';
+
+const CARD_HEIGHT = 874;
+const CARD_WIDTH = 678;
 
 function colorToClass(color) {
   switch (color) {
-    case "Red": return "Red";
-    case "Blue": return "Blue";
-    case "Green": return "Green";
-    case "Purple": return "Purple";
+    case "Red": return "Ironclad";
+    case "Blue": return "Defect";
+    case "Green": return "Silent";
+    case "Purple": return "Watcher";
     default: return "N/A";
   }
 }
@@ -25,14 +29,19 @@ function colorToClass(color) {
     "description": "Deal 8 damage.\nApply 2 Vulnerable.",
     "image": "http://localhost:3000/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--6e8b5ca4aed9399c0f5723379b9d52d6d1c562c6/Bash.png"
   }
-} */
+}
+// dimensions: 678x874
+*/
 
 function CardsContainer(props) {
   console.log("CardsContainer", props.card);
 
   return <div className="Card">
-    <img src={props.card.attributes.image}
-         alt={props.card.attributes.name} />
+    <Image src={props.card.attributes.image}
+           alt={props.card.attributes.name}
+           placeholderColor="#282c34"
+           width={CARD_WIDTH}
+           height={CARD_HEIGHT} />
     <table>
       <tbody>
         <tr>
