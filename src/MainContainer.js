@@ -1,28 +1,24 @@
-import React from 'react';
-import * as requests from './requests';
+import React, { useState, useEffect } from 'react';
+import { fetchCards } from './requests';
+import { randomItem } from './utilities';
 import CardsContainer from './CardsContainer';
 
-// https://stackoverflow.com/questions/5915096/get-random-item-from-javascript-array
-function randomItem(items){
-  return items[Math.floor(Math.random() * items.length)];
-}
+function MainContainer() {
+  const [cards, setCards] = useState([]);
 
-class MainContainer extends React.Component {
-  state = { cards: [] };
-
-  async componentDidMount() {
-    const json = await requests.fetchCards();
-    if (json) {
-      this.setState({ cards: json["data"] });
+  useEffect(() => {
+    const makeRequest = async () => {
+      const json = await fetchCards();
+      if (json) {
+        setCards(json["data"]);
+      }
     }
-  }
+    makeRequest();
+  }, []);
 
-  render() {
-    // console.log("MainContainer", this.state);
-    return <>
-      { this.state.cards.length > 0 && <CardsContainer card={randomItem(this.state.cards)} /> }
-    </>
-  }
+  return <div className="Main">
+    { cards.length > 0 && <CardsContainer card={randomItem(cards)} /> }
+  </div>
 }
 
 export default MainContainer;
