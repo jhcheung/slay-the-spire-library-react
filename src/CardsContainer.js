@@ -3,8 +3,8 @@ import Image from 'react-graceful-image';
 import { colorToClass } from './utilities';
 import './CardsContainer.css';
 
-const CARD_HEIGHT = 874;
-const CARD_WIDTH = 678;
+const CARD_HEIGHT = 874 / 2;
+const CARD_WIDTH = 678 / 2;
 
 function CardsContainer(props) {
   console.log("CardsContainer", props.card);
