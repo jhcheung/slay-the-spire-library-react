@@ -2,9 +2,19 @@ import React from 'react';
 import Image from 'react-graceful-image';
 import { colorToClass } from './utilities';
 import './CardsContainer.css';
+import Keyword from './Keyword';
+import ReactHtmlParser from 'react-html-parser';
 
 const CARD_HEIGHT = 874 / 2;
 const CARD_WIDTH = 678 / 2;
+
+const options = { transform }
+
+function transform(node, index) {
+  if (node.type === 'tag' && node.name === 'keyword'){
+    return <Keyword key={index} name={node.attribs.name} />;
+  }
+}
 
 function CardsContainer(props) {
   console.log("CardsContainer", props.card);
@@ -42,8 +52,8 @@ function CardsContainer(props) {
           <td>{props.card.attributes.cost}</td>
         </tr>
         <tr>
-          <td>Description:</td>
-          <td>{props.card.attributes.description}</td>
+          <td>Keyword Description:</td>
+          <td> {ReactHtmlParser(props.card.attributes.keyword_description, options)} </td>
         </tr>
       </tbody>
     </table>
