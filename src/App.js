@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import MainContainer from './MainContainer';
 import CardsContainer from './CardsContainer';
-import { fetchCard } from './requests';
+import { fetchCard, fetchKeywords } from './requests';
 import './App.css';
 
 import {
@@ -12,8 +12,10 @@ import {
 } from "react-router-dom";
 
 // TODO this probably belongs in CardsContainer.js in some way
+// TODO restructure to not share code with CardsContainer.js -- maybe make Card component that's shared between tthis and CardsContainer.js
 function Card() {
   const [card, setCard] = useState({});
+  const [keywords, setKeywords] = useState({});
   const { id } = useParams();
 
   useEffect(() => {
@@ -22,11 +24,16 @@ function Card() {
       if (json) {
         setCard(json["data"]);
       }
+
+      const keywordsJSON = await fetchKeywords();
+      if (keywordsJSON) {
+        setKeywords(keywordsJSON["data"])
+      }
     }
     makeRequest();
   }, [id]);
 
-  return <CardsContainer card={card} />;
+  return <CardsContainer card={card} keywords={keywords} />;
 }
 
 function App() {

@@ -8,19 +8,20 @@ import ReactHtmlParser from 'react-html-parser';
 const CARD_HEIGHT = 874 / 2;
 const CARD_WIDTH = 678 / 2;
 
-const options = { transform }
-
-function transform(node, index) {
-  if (node.type === 'tag' && node.name === 'keyword'){
-    return <Keyword key={index} name={node.attribs.name} />;
-  }
-}
-
 function CardsContainer(props) {
-  console.log("CardsContainer", props.card);
+  // console.log("CardsContainer", props.card);
+  // console.log(props.keywords);
 
   if (!props.card || !props.card.attributes){
     return <div />
+  }
+
+  const options = { transform }
+
+  function transform(node, index) {
+    if (node.type === 'tag' && node.name === 'keyword'){
+      return <Keyword key={index} name={node.attribs.name} keywords={props.keywords}/>;
+    }
   }
 
   return <div className="Card">
