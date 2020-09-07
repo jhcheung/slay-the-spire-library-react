@@ -7,8 +7,6 @@ function Keyword(props) {
   }
   let rendered;
 
-  console.log(props.keywords)
-
   /*
   // TODO refactor and ideally have a route like api/v1/keywords_lookup
   const map = {
@@ -31,7 +29,6 @@ function Keyword(props) {
     }
   }
 
-  console.log(map)
   switch (props.name) {
     case "[E]":
       rendered = <span role="img" title="Colorless" aria-label="Colorless">⚪</span>

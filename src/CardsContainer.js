@@ -9,9 +9,6 @@ const CARD_HEIGHT = 874 / 2;
 const CARD_WIDTH = 678 / 2;
 
 function CardsContainer(props) {
-  // console.log("CardsContainer", props.card);
-  // console.log(props.keywords);
-
   if (!props.card || !props.card.attributes){
     return <div />
   }
