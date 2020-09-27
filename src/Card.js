@@ -26,3 +26,5 @@ function Card() {
 
   return <CardsContainer card={card} keywords={keywords} />;
 }
+
+export default Card;
