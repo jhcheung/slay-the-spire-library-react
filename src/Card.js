@@ -1,8 +1,12 @@
 //copied from App to work on
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useParams } from 'react';
 import { fetchCard, fetchKeywords } from './requests';
 import Image from 'react-graceful-image';
 import './App.css';
+
+const CARD_HEIGHT = 874 / 2;
+const CARD_WIDTH = 678 / 2;
+
 
 function Card(props) {
   const [card, setCard] = useState({});
