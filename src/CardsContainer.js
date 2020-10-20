@@ -4,11 +4,13 @@ import { colorToClass } from './utilities';
 import './CardsContainer.css';
 import Keyword from './Keyword';
 import ReactHtmlParser from 'react-html-parser';
+import Card from './Card'
 
-const CARD_HEIGHT = 874 / 2;
-const CARD_WIDTH = 678 / 2;
+// const CARD_HEIGHT = 874 / 2;
+// const CARD_WIDTH = 678 / 2;
 
 function CardsContainer(props) {
+
   if (!props.card || !props.card.attributes){
     return <div />
   }
@@ -21,12 +23,15 @@ function CardsContainer(props) {
     }
   }
 
+
+
   return <div className="Card">
-    <Image src={props.card.attributes.image}
+    <Card card={props.card} />
+    {/* <Image src={props.card.attributes.image}
            alt={props.card.attributes.name}
            placeholderColor="#282c34"
            width={CARD_WIDTH}
-           height={CARD_HEIGHT} />
+           height={CARD_HEIGHT} /> */}
     <table>
       <tbody>
         <tr>

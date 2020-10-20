@@ -1,5 +1,5 @@
 //copied from App to work on
-import React, { useState, useEffect, useParams } from 'react';
+import React, { useState, useEffect } from 'react';
 import { fetchCard, fetchKeywords } from './requests';
 import Image from 'react-graceful-image';
 import './App.css';
@@ -11,11 +11,10 @@ const CARD_WIDTH = 678 / 2;
 function Card(props) {
   const [card, setCard] = useState({});
   const [keywords, setKeywords] = useState({});
-  const { id } = useParams();
 
   useEffect(() => {
     const makeRequest = async () => {
-      const json = await fetchCard(id);
+      const json = await fetchCard(props.id);
       if (json) {
         setCard(json["data"]);
       }
@@ -26,7 +25,7 @@ function Card(props) {
       }
     }
     makeRequest();
-  }, [id]);
+  }, [props.id]);
 
   return <div className="Card">
     <Image src={props.card.attributes.image}
