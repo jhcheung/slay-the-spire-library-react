@@ -1,5 +1,4 @@
 import React from 'react';
-import Image from 'react-graceful-image';
 import { colorToClass } from './utilities';
 import './CardsContainer.css';
 import Keyword from './Keyword';
@@ -22,17 +21,11 @@ function CardsContainer(props) {
       return <Keyword key={index} name={node.attribs.name} keywords={props.keywords}/>;
     }
   }
-
-
-
-  return <div className="Card">
+  console.log(props)
+  return <>
     <Card card={props.card} />
-    {/* <Image src={props.card.attributes.image}
-           alt={props.card.attributes.name}
-           placeholderColor="#282c34"
-           width={CARD_WIDTH}
-           height={CARD_HEIGHT} /> */}
-    <table>
+    {/* TODO this should probably go into a component like CardDetail */}
+    <table className="CardDetails">
       <tbody>
         <tr>
           <td>Name: </td>
@@ -55,12 +48,16 @@ function CardsContainer(props) {
           <td>{props.card.attributes.cost}</td>
         </tr>
         <tr>
+          <td>Id: </td>
+          <td>{props.card.id}</td>
+        </tr>
+        <tr>
           <td>Keyword Description:</td>
           <td> {ReactHtmlParser(props.card.attributes.keyword_description, options)} </td>
         </tr>
       </tbody>
     </table>
-  </div>
+  </>
 }
 
 export default CardsContainer;

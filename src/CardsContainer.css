@@ -1,0 +1,17 @@
+.CardDetails table, td {
+  text-align: left;
+  border-collapse: collapse;
+  border: 1px solid white;
+}
+
+.CardDetails td {
+  border: 1px solid white;
+}
+
+.CardDetails td:first-child {
+  width: 20%;
+}
+
+.CardDetails td:last-child {
+  width: 80%;
+}

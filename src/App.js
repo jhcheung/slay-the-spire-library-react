@@ -33,7 +33,9 @@ function Card() {
     makeRequest();
   }, [id]);
 
-  return <CardsContainer card={card} keywords={keywords} />;
+  return <div>
+    <CardsContainer card={card} keywords={keywords} />
+  </div>
 }
 
 function App() {
@@ -42,8 +44,6 @@ function App() {
       <div className="App">
         <header className="App-header">
           <h3 id="title">Slay The Spire Card Library</h3>
-          </header>
-
           <Switch>
             <Route path="/cards/:id">
               <Card />
@@ -52,6 +52,8 @@ function App() {
               <MainContainer />
             </Route>
           </Switch>
+        </header>
+
       </div>
     </BrowserRouter>
   );
